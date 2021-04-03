@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+</head>
+
+<body>
+    <section class="hero is-primary is-fullheight">
+
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a href="{{ url_for('home') }}" class="navbar-item">
+                                Home
+                            </a>
+                            <a href="{{ url_for('pessoa') }}" class="navbar-item">
+                                Pessoa publica
+                            </a>
+                    </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered"></div>
+        </div>
+    </section>
+</body>
+
+</html>
