@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabela de Pessoas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <style>
+        td, th {
+  border: 2px solid #000000;
+  text-align: center;
+  padding: 8px;
+}
+    </style>
+</head>
+<body>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <p class="title">
+       Tabela de Pessoa
+    </p>
+
+<form action="/cadastrar_pessoa">
+    <input type="submit" value="criar"/>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>
+            id da pessoa
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Nome
+        </th>
+        <th>
+            Telefone
+        </th>
+        <th>
+            data_de_nascimento
+        </th>
+        <th>
+            cpf
+        </th>
+        <th>
+            senha
+        </th>
+    </tr>
+    </thead>
+    {% for pessoa in data %}
+    <tr>
+        <td>
+            {{ pessoa.id }}
+        </td>
+        <td>
+            {{ pessoa.email }}
+        </td>
+        <td>
+            {{ pessoa.nome }}
+        </td>
+        <td>
+            {{ pessoa.telefone }}
+        </td>
+        <td>
+            {{ pessoa.data_de_nascimento }}
+        </td>
+        <td>
+            {{ pessoa.cpf }}
+        </td>
+        <td>
+            {{ pessoa.senha }}
+        </td>
+        <td>
+            <form action="/cadastrar_pessoa">
+                <input type="submit" value="editar"/>
+            </form>
+        </td>
+        <td>
+            <form action="/deletar_pessoa/{{ pessoa.id }}">
+                <input type="submit" value="excluir"/>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="/">
+    Retornar guia
+</a>
+      </div>
+</section>
+</body>
+</html>

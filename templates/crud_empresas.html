@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabela de Empresas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <style>
+        td, th {
+  border: 2px solid #000000;
+  text-align: center;
+  padding: 8px;
+}
+    </style>
+</head>
+<body>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <p class="title">
+       Tabela de Empresa
+    </p>
+
+<form action="/cadastrar_empresa">
+    <input type="submit" value="criar"/>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>
+            id da empresa
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Nome
+        </th>
+        <th>
+            token
+        </th>
+        <th>
+            creditos
+        </th>
+        <th>
+            senha
+        </th>
+    </tr>
+    </thead>
+    {% for empresa in data %}
+    <tr>
+        <td>
+            {{ empresa.id }}
+        </td>
+        <td>
+            {{ empresa.email }}
+        </td>
+        <td>
+            {{ empresa.nome }}
+        </td>
+        <td>
+            {{ empresa.token }}
+        </td>
+        <td>
+            {{ empresa.creditos }}
+        </td>
+        <td>
+            {{ empresa.senha }}
+        </td>
+        <td>
+            <form action="/cadastrar_empresa">
+                <input type="submit" value="editar"/>
+            </form>
+        </td>
+        <td>
+            <form action="/deletar_empresa/{{ empresa.id }}">
+                <input type="submit" value="excluir"/>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="/">
+    Retornar guia
+</a>
+      </div>
+</section>
+</body>
+</html>
