@@ -34,6 +34,22 @@ class Pessoa(db.Model, Base):
         self.cpf = cpf
 
 
+class Empresa(db.Model, Base):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    email = db.Column(db.String(80), unique=True)
+    nome = db.Column(db.String(80))
+    token = db.Column(db.String(80), unique=True)
+    senha = db.Column(db.String(80))
+    creditos = db.Column(db.Integer())
+
+    def __init__(self, email, nome, senha, creditos, token):
+        self.email = email
+        self.senha = senha
+        self.nome = nome
+        self.token = token
+        self.creditos = creditos
+
+
 @app.route('/')
 def home():
     return render_template("home.html", messages=False)
@@ -42,11 +58,17 @@ def home():
 @app.route('/pessoa_publica')
 def pessoa():
     data = Pessoa.query.all()
-    return render_template("pessoa_publica.html", data=data)
+    return render_template("pessoa_publica.html", data=data)\
 
 
-@app.route('/registrando', methods=['POST'])
-def registrando():
+@app.route('/empresa')
+def empresa():
+    data = Empresa.query.all()
+    return render_template("empresa.html", data=data)
+
+
+@app.route('/registrando_pessoa', methods=['POST'])
+def registrando_pessoa():
     if request.method == 'POST':
         try:
             pessoa_existente = db.session.query(Pessoa).filter(Pessoa.cpf == request.form['cpf']).one()
@@ -66,17 +88,63 @@ def registrando():
         return redirect(url_for('home'))
 
 
+@app.route('/registrando_empresa', methods=['POST'])
+def registrando_empresa():
+    if request.method == 'POST':
+        try:
+            empresa_existente = db.session.query(Empresa).filter(Empresa.token == request.form['token']).one()
+            empresa_existente.nome = request.form['nome']
+            empresa_existente.email = request.form['email']
+            empresa_existente.creditos = request.form['creditos']
+            empresa_existente.token = request.form['token']
+            empresa_existente.senha = request.form['senha']
+            db.session.commit()
+
+        except NoResultFound:
+            registrando_empresa = Empresa(email=request.form['email'],  senha=request.form['senha'], nome=request.form['nome'], token=request.form['token'], creditos=request.form['creditos'])
+            db.session.add(registrando_empresa)
+            db.session.commit()
+
+        return redirect(url_for('home'))
+
 @app.route("/cadastrar_pessoa")
 def cadastrar_pessoa():
-    return render_template("cadastrar_pessoa.html", messages=False)
+    return render_template("cadastrar_pessoa.html", messages=False)\
 
 
-@app.route("/verificando", methods=['POST'])
-def verificando():
-    return
+@app.route("/cadastrar_empresa")
+def cadastrar_empresa():
+    return render_template("cadastrar_empresa.html", messages=False)
 
 
+@app.route("/login_usuario")
+def login_usuario():
+    return render_template("login_usuario.html", messages=False)
 
-@app.route("/entrar_pessoa")
-def entrar_pessoa():
-    return render_template("entrar_pessoa.html", messages=False)
+
+@app.route("/tabela_pessoa")
+def tabela_pessoa():
+    data = Pessoa.query.all()
+    return render_template("crud_pessoas.html", messages=False, data=data)
+
+@app.route("/tabela_empresa")
+def tabela_empresa():
+    data = Empresa.query.all()
+    return render_template("crud_empresas.html", messages=False, data=data)
+
+
+@app.route('/deletar_pessoa/<int:id>')
+def deletar_pessoa(id):
+    delete_pessoa = Pessoa.query.get(id)
+    db.session.delete(delete_pessoa)
+    db.session.commit()
+    return redirect(url_for("tabela_pessoa"))\
+
+
+@app.route('/deletar_empresa/<int:id>')
+def deletar_empresa(id):
+    delete_empresa = Empresa.query.get(id)
+    db.session.delete(delete_empresa)
+    db.session.commit()
+    return redirect(url_for("tabela_empresa"))
+
