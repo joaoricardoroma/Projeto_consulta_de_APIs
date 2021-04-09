@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tabela de Empresas</title>
+    <title>Tabela de Usuarios</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <style>
@@ -18,62 +18,50 @@
 <section class="hero is-warning">
   <div class="hero-body">
     <p class="title">
-       Tabela de Empresa
+       Tabela de Super Usuario
     </p>
 
-<form action="/cadastrar_empresa">
+<form action="/criador_de_usuario">
     <input type="submit" value="criar"/>
 </form>
 <table>
     <thead>
     <tr>
         <th>
-            id da empresa
-        </th>
-        <th>
-            Email
+            id do usuario
         </th>
         <th>
             Nome
         </th>
         <th>
-            token
-        </th>
-        <th>
-            creditos
+            Email
         </th>
         <th>
             senha
         </th>
     </tr>
     </thead>
-    {% for empresa in data %}
+    {% for usuario in data %}
     <tr>
         <td>
-            {{ empresa.id }}
+            {{ usuario.id }}
         </td>
         <td>
-            {{ empresa.email }}
+            {{ usuario.email }}
         </td>
         <td>
-            {{ empresa.nome }}
+            {{ usuario.nome }}
         </td>
         <td>
-            {{ empresa.token }}
+            {{ usuario.senha }}
         </td>
         <td>
-            {{ empresa.creditos }}
-        </td>
-        <td>
-            {{ empresa.senha }}
-        </td>
-        <td>
-            <form action="/editar_empresa/{{ empresa.id }}">
+            <form action="/editar_usuario/{{ usuario.id }}">
                 <input type="submit" value="editar"/>
             </form>
         </td>
         <td>
-            <form action="/deletar_empresa/{{ empresa.id }}">
+            <form action="/deletar_usuario/{{ usuario.id }}">
                 <input type="submit" value="excluir"/>
             </form>
         </td>

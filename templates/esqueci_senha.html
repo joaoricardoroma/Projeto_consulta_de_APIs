@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Esqueci senha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<section class="hero is-danger">
+<div class="hero-body">
+    <p class="title">
+            Coloque seu email abaixo
+        </p>
+        <p class="subtitle">
+            Voce recebera uma email para recuperar senha
+        </p>
+    <form action="/esqueci_senha" method="post">
+          <input type="email" placeholder="digite seu email" name="email" id="email">
+            <br>
+          <input type="submit" value="enviar"/>
+    </form>
+
+</div>
+</section>
+
+</body>
+</html>

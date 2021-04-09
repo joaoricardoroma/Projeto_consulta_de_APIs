@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastrar_pessoa</title>
+    <title>Login de Super usuario</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <style>
@@ -18,16 +18,17 @@
         <p class="subtitle">
             Faça seu Login abaixo
         </p>
-        <form action="/tabela_pessoa">
+        <form action="/login" method="post">
             <input type="email" placeholder="digite seu email" name="email" id="email">
             <br><br>
-            <input type="text" placeholder="digite sua senha" name="senha" id="senha">
+            <input type="password" placeholder="digite sua senha" name="senha" id="senha">
             <br><br>
+            <input type="submit" value="login"/>
         </form>
-        <br>
-        <a href="/tabela_pessoa" ><button>tabela pessoas</button></a>
             <br>
-        <a href="/tabela_empresa" ><button>tabela empresas</button> </a>
+            <br>
+        <a href="/esqueci_senha">Esqueci senha</a>
+            <br>
         <a href="/">
             Voltar para a Home
         </a>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar pessoa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<section class="hero is-primary">
+  <div class="hero-body">
+    <p class="title">
+      Edite as informações
+    </p>
+    <p class="subtitle">
+      Mude as lacunas abaixo
+    </p>
+
+
+    <form action="/editar_pessoa/{{ data.id }}" method="post">
+        <input type="text" placeholder="digite seu nome" name="nome" id="nome" value="{{ data.nome }}">
+                <br><br>
+        <input type="text" placeholder="digite seu email" name="email" id="email" value="{{ data.email }}">
+                <br><br>
+        <input type="text" placeholder="digite sua senha" name="senha" id="senha" value="{{ data.senha }}">
+                <br><br>
+        <input type="text" placeholder="digite seu telefone" name="telefone" id="telefone" value="{{ data.telefone }}">
+                <br><br>
+        <input type="text" placeholder="digite sua data_de_nascimento" name="data_de_nascimento" id="data_de_nascimento" value="{{ data.data_de_nascimento }}">
+                <br><br>
+        <input type="text" placeholder="digite seu cpf" name="cpf" id="cpf" value="{{ data.cpf }}">
+                <br><br>
+        <input type="submit" value="enviar"/>
+    </form>
+</div>
+</section>
+</body>
+</html>

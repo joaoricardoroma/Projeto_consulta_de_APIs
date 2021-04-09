@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultando API</title>
+</head>
+<body>
+<p class="title">
+            Coloque o telefone da pessoa que deseja consultar
+        </p>
+    <form action="/api/consult_by_screen" method="post">
+      <input type="text" placeholder="digite o telefone" name="phone" id="phone">
+            <br>
+      <p class="title">
+            Coloque o token da sua empresa
+        </p>
+      <input type="text" placeholder="digite o token" name="token" id="token">
+            <br>
+            <input type="submit" value="enviar"/>
+    </form>
+{{ data }}
+</body>
+</html>
