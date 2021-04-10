@@ -17,6 +17,7 @@ from flask import request, jsonify
 import json
 import requests
 
+
 Base = declarative_base()
 app = Flask(__name__)
 
