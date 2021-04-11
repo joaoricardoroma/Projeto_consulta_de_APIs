@@ -113,10 +113,11 @@ def registrando_pessoa():
             pessoa_existente.telefone = request.form['telefone']
             pessoa_existente.data_de_nascimento = request.form['data_de_nascimento']
             pessoa_existente.cpf = request.form['cpf']
+            pessoa_existente.cpf = request.form['senha']
             db.session.commit()
 
         except NoResultFound:
-            registrando_pessoa = Pessoa(email=request.form['email'], nome=request.form['nome'], telefone=request.form['telefone'], data_de_nascimento=request.form['data_de_nascimento'], cpf=request.form['cpf'])
+            registrando_pessoa = Pessoa(email=request.form['email'], senha=request.form['senha'], nome=request.form['nome'], telefone=request.form['telefone'], data_de_nascimento=request.form['data_de_nascimento'], cpf=request.form['cpf'])
             db.session.add(registrando_pessoa)
             db.session.commit()
 
