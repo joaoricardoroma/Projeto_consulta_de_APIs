@@ -275,7 +275,7 @@ def login():
 @app.route('/logado')
 @login_required
 def logado():
-    return render_template("logado.html", data=current_user.nome)
+    return render_template("logado.html")
 
 
 @app.route('/api/consult_by_phone', methods=['POST'])
