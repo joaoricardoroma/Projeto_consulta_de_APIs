@@ -264,7 +264,6 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password =request.form['senha']
-        import ipdb; ipdb.set_trace()
         user = Usuario.query.filter_by(email=email).first()
         if not user or not user.verify_password(password):
             return redirect(url_for("login"))
