@@ -31,13 +31,7 @@
             id do usuario
         </th>
         <th>
-            Nome
-        </th>
-        <th>
             Email
-        </th>
-        <th>
-            senha
         </th>
     </tr>
     </thead>
@@ -48,12 +42,6 @@
         </td>
         <td>
             {{ usuario.email }}
-        </td>
-        <td>
-            {{ usuario.nome }}
-        </td>
-        <td>
-            {{ usuario.senha }}
         </td>
         <td>
             <form action="/editar_usuario/{{ usuario.id }}">

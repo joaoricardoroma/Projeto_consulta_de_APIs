@@ -72,16 +72,14 @@ class Empresa(db.Model, Base):
 class Usuario(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(80), unique=True)
-    senha = db.Column(db.String(80))
-    nome = db.Column(db.String(80))
+    senha = db.Column(db.String(255))
 
-    def __init__(self, email, senha, nome):
+    def __init__(self, email, senha):
         self.email = email
         self.senha = senha
-        self.nome = nome
 
     def verify_password(self, password):
-        return self.senha == password
+        return self.senha == generate_password_hash(password, method='sha256')
 
 
 @app.route('/')
@@ -136,7 +134,8 @@ def registrando_empresa():
 @app.route('/registrando_usuario', methods=['POST'])
 def registrando_usuario():
     if request.method == 'POST':
-        registrando_usuario = Usuario(email=request.form['email'],  senha=request.form['senha'], nome=request.form['nome'])
+        password = generate_password_hash(request.form['senha'], method='sha256')
+        registrando_usuario = Usuario(email=request.form['email'],  senha=password)
         db.session.add(registrando_usuario)
         db.session.commit()
         return redirect(url_for('tabela_usuario'))
@@ -224,11 +223,10 @@ def editar_usuario(id):
     data = Usuario.query.get(id)
     if request.method == 'POST':
         data.email = request.form['email']
-        data.senha = request.form['senha']
+        data.senha = generate_password_hash(request.form['senha'], method='sha256')
         db.session.commit()
         return redirect(url_for('tabela_usuario'))
-    return render_template("editar_usuario.html", data=data)\
-
+    return render_template("editar_usuario.html", data=data)
 
 
 @app.route('/editar_pessoa/<int:id>', methods=['GET', 'POST'])
