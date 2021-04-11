@@ -306,8 +306,8 @@ def consult_by_phone():
 
 @app.route('/api/consult_by_screen', methods=['GET', 'POST'])
 def consult_by_screen():
+    data = None
     if request.method == 'POST':
-        import ipdb; ipdb.set_trace()
         url = 'http://127.0.0.1:5000/api/consult_by_phone'
         headers = {'Authorization': 'Bearer 123'}
         payload = {'phone': '{}'.format(request.form['phone'])}
