@@ -16,12 +16,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import request, jsonify
 import json
 import requests
-
+from os import environ
 
 Base = declarative_base()
 app = Flask(__name__)
+DB_HOST = environ.get('DB_HOST', default='sql10.freemysqlhosting.net')
+DB_NAME = environ.get('DB_NAME', default='sql10404637')
+DB_PASSWORD = environ.get('DB_PASSWORD', default='HXPT7824Gj')
+DB_USERNAME = environ.get('DB_USERNAME', default='sql10404637')
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123@127.0.0.1/investment'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'secret'
 login_manager = LoginManager(app)
