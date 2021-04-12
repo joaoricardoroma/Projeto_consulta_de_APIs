@@ -45,7 +45,7 @@ class Pessoa(db.Model, Base):
     data_de_nascimento = db.Column(db.String(80))
     cpf = db.Column(db.String(80), unique=True)
 
-    def __init__(self, email, nome, telefone, data_de_nascimento, cpf, senha):
+    def __init__(self, email, nome, telefone, data_de_nascimento, cpf):
         self.email = email
         self.nome = nome
         self.telefone = telefone
@@ -58,12 +58,10 @@ class Empresa(db.Model, Base):
     email = db.Column(db.String(80), unique=True)
     nome = db.Column(db.String(80))
     token = db.Column(db.String(80), unique=True)
-    senha = db.Column(db.String(80))
     creditos = db.Column(db.Integer())
 
-    def __init__(self, email, nome, senha, creditos, token):
+    def __init__(self, email, nome, creditos, token):
         self.email = email
-        self.senha = senha
         self.nome = nome
         self.token = token
         self.creditos = creditos
@@ -111,11 +109,10 @@ def registrando_pessoa():
             pessoa_existente.telefone = request.form['telefone']
             pessoa_existente.data_de_nascimento = request.form['data_de_nascimento']
             pessoa_existente.cpf = request.form['cpf']
-            pessoa_existente.cpf = request.form['senha']
             db.session.commit()
 
         except NoResultFound:
-            registrando_pessoa = Pessoa(email=request.form['email'], senha=request.form['senha'], nome=request.form['nome'], telefone=request.form['telefone'], data_de_nascimento=request.form['data_de_nascimento'], cpf=request.form['cpf'])
+            registrando_pessoa = Pessoa(email=request.form['email'], nome=request.form['nome'], telefone=request.form['telefone'], data_de_nascimento=request.form['data_de_nascimento'], cpf=request.form['cpf'])
             db.session.add(registrando_pessoa)
             db.session.commit()
 
@@ -125,7 +122,7 @@ def registrando_pessoa():
 @app.route('/registrando_empresa', methods=['POST'])
 def registrando_empresa():
     if request.method == 'POST':
-        registrando_empresa = Empresa(email=request.form['email'],  senha=request.form['senha'], nome=request.form['nome'], token=request.form['token'], creditos=request.form['creditos'])
+        registrando_empresa = Empresa(email=request.form['email'], nome=request.form['nome'], token=request.form['token'], creditos=request.form['creditos'])
         db.session.add(registrando_empresa)
         db.session.commit()
         return redirect(url_for('home'))
@@ -210,7 +207,6 @@ def editar_empresa(id):
     if request.method == 'POST':
         data.nome = request.form['nome']
         data.email = request.form['email']
-        data.senha = request.form['senha']
         data.token = request.form['token']
         data.creditos = request.form['creditos']
         db.session.commit()
@@ -235,7 +231,6 @@ def editar_pessoa(id):
     if request.method == 'POST':
         data.nome = request.form['nome']
         data.email = request.form['email']
-        data.senha = request.form['senha']
         data.telefone = request.form['telefone']
         data.data_de_nascimento = request.form['data_de_nascimento']
         data.cpf = request.form['cpf']

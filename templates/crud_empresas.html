@@ -42,9 +42,6 @@
         <th>
             creditos
         </th>
-        <th>
-            senha
-        </th>
     </tr>
     </thead>
     {% for empresa in data %}
@@ -63,9 +60,6 @@
         </td>
         <td>
             {{ empresa.creditos }}
-        </td>
-        <td>
-            {{ empresa.senha }}
         </td>
         <td>
             <form action="/editar_empresa/{{ empresa.id }}">
