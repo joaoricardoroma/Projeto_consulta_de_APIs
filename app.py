@@ -264,7 +264,7 @@ def login():
 
         login_user(user)
         return redirect(url_for("logado"))
-    return render_template("home.html")
+    return render_template("login_usuario.html")
 
 
 @app.route('/logado')
