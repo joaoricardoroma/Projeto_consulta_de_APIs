@@ -257,7 +257,7 @@ def esqueci_senha():
 def login():
     if request.method == 'POST':
         email = request.form['email']
-        password =request.form['senha']
+        password = request.form['senha']
         user = Usuario.query.filter_by(email=email).first()
         if not user or not user.verify_password(password):
             return redirect(url_for("login"))
