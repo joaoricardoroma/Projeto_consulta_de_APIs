@@ -18,6 +18,7 @@ import json
 import requests
 from os import environ
 
+
 Base = declarative_base()
 app = Flask(__name__)
 DB_HOST = environ.get('DB_HOST', default='sql10.freemysqlhosting.net')
@@ -77,7 +78,8 @@ class Usuario(db.Model, UserMixin):
         self.senha = senha
 
     def verify_password(self, password):
-        return self.senha == generate_password_hash(password, method='sha256')
+        pwhash = generate_password_hash(password, method='sha256')
+        return check_password_hash(pwhash, password)
 
 
 @app.route('/')
