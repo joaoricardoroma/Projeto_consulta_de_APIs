@@ -7,21 +7,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <style>
-</style>
+    </style>
 </head>
 <body>
-<section class="hero is-info">
-  <div class="hero-body">
-<h2>Se cadastre-se</h2>
-<br>
-
-<a href="/cadastrar_empresa"><button>Cadastrar</button></a>
-                        <br><br>
-
-      <h2>Consulte o nome da pessoa usando seu telefone</h2>
-
-<a href="/api/consult_by_screen"><button>Consultar api</button></a>
-</div>
+<nav class="navbar has-shadow is-white is-link">
+    <div class="navbar-brand">
+        <a href="{{ url_for('home') }}" class="navbar-item">
+            <img src="https://cdn.discordapp.com/attachments/644351049175531530/831694890416734278/nowalls_icon.png"
+                 alt="site logo" style="max-height:70px">
+        </a>
+    </div>
+    <div class="navbar-menu" id="navbar-links">
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}" class="navbar-item">
+                Home
+            </a> <br>
+            <a href="{{ url_for('pessoa') }}" class="navbar-item">
+                Pessoa publica
+            </a><br>
+            <a href="{{ url_for('login_usuario') }}" class="navbar-item">
+                Login de Usuario
+            </a><br>
+            <a href="{{ url_for('empresa') }}" class="navbar-item">
+                Empresa
+            </a>
+        </div>
+    </div>
+</nav>
+<section class="hero is-link">
+    <div class="hero-body">
+        <h2 class="title">Cadastre-se</h2>
+        <br>
+        <a href="/cadastrar_empresa">
+            <button class="button is-info is-rounded">Cadastrar</button>
+        </a>
+        <br><br>
+        <h2 class="title">Consulte o nome da pessoa usando seu telefone</h2>
+        <a href="/api/consult_by_screen">
+            <button class="button is-info is-rounded">Consultar api</button>
+        </a>
+    </div>
 </section>
 </body>
 </html>

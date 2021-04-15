@@ -3,24 +3,60 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <style>
+    </style>
 </head>
 
 <body>
-            <nav class="navbar">
-                            <a href="{{ url_for('home') }}" class="navbar-item">
-                                Home
-                            </a> <br>
-                            <a href="{{ url_for('pessoa') }}" class="navbar-item">
-                                Pessoa publica
-                            </a><br>
-                            <a href="{{ url_for('login_usuario') }}" class="navbar-item">
-                                Login de Usuario
-                            </a><br>
-                            <a href="{{ url_for('empresa') }}" class="navbar-item">
-                                Empresa
-                            </a>
-            </nav>
-</body>
+<nav class="navbar has-shadow is-white is-link">
+    <div class="navbar-brand">
+        <a href="{{ url_for('home') }}" class="navbar-item">
+            <img src="https://cdn.discordapp.com/attachments/644351049175531530/831694890416734278/nowalls_icon.png"
+                 alt="site logo" style="max-height:70px">
+        </a>
+        <a class="navbar-burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
 
+    <div class="navbar-menu" id="nav-links">
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}" class="navbar-item">
+                Home
+            </a> <br>
+            <a href="{{ url_for('pessoa') }}" class="navbar-item">
+                Pessoa publica
+            </a><br>
+            <a href="{{ url_for('login_usuario') }}" class="navbar-item">
+                Login de Usuario
+            </a><br>
+            <a href="{{ url_for('empresa') }}" class="navbar-item">
+                Empresa
+            </a>
+        </div>
+    </div>
+</nav>
+<section class="section hero is-link">
+    <div>
+        <h1 class="is-size-1 has-text-centered title">Consulte já!</h1>
+    </div>
+    <div>
+        <h1 class="title is-size-3 has-text-centered">Para que serve o site e o que ele faz?</h1>
+        <div class="content">
+            <p class="text">Nosso site se da de uma ideia parar aumentar a eficiencia e a facilidade das pessoas e das
+                empresa de telefonia
+                assim fazendo com q as pessoas nao sofram ligacoes inoportunas e as empresas terao maior controle com
+                seus numeros reciclados e etc.</p>
+        </div>
+    </div>
+</section>
+
+<script src="mobile_nav.js"></script>
+</body>
 </html>

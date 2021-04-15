@@ -10,7 +10,32 @@
     </style>
 </head>
 <body>
-<section class="hero is-danger">
+<nav class="navbar has-shadow is-white is-link">
+    <div class="navbar-brand">
+        <a href="{{ url_for('home') }}" class="navbar-item">
+            <img src="https://cdn.discordapp.com/attachments/644351049175531530/831694890416734278/nowalls_icon.png"
+                 alt="site logo" style="max-height:70px">
+        </a>
+    </div>
+    <div class="navbar-menu" id="navbar-links">
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}" class="navbar-item">
+                Home
+            </a> <br>
+            <a href="{{ url_for('pessoa') }}" class="navbar-item">
+                Pessoa publica
+            </a><br>
+            <a href="{{ url_for('login_usuario') }}" class="navbar-item">
+                Login de Usuario
+            </a><br>
+            <a href="{{ url_for('empresa') }}" class="navbar-item">
+                Empresa
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero is-link">
     <div class="hero-body">
         <p class="title">
             Super usuario
@@ -19,19 +44,36 @@
             Faça seu Login abaixo
         </p>
         <form action="/login" method="post">
-            <input type="email" placeholder="digite seu email" name="email" id="email">
-            <br><br>
-            <input type="password" placeholder="digite sua senha" name="senha" id="senha">
-            <br><br>
-            <input type="submit" value="login"/>
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" placeholder="Email" name="email" id="email">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </p>
+            </div>
+            <br>
+            <div class="field">
+                    <p class="control has-icons-left">
+                        <input class="input" type="password" placeholder="Password" name="senha" id="senha">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </p>
+            </div>
+            <br>
+            <div class="field is-grouped">
+                <div class="control">
+                    <input class="button is-info is-rounded is-medium" type="submit" value="Login"/>
+                </div>
+            </div>
         </form>
-            <br>
-            <br>
+        <br>
         <a href="/esqueci_senha">Esqueci senha</a>
-            <br>
-        <a href="/">
-            Voltar para a Home
-        </a>
+        <br>
     </div>
 </section>
 

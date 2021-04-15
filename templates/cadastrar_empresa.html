@@ -1,4 +1,4 @@
-<!DOCTYPE html>cadastrar empresa
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -10,33 +10,98 @@
     </style>
 </head>
 <body>
-<section class="hero is-primary">
-  <div class="hero-body">
-    <p class="title">
-      Cadastre-se sua Empresa aqui
-    </p>
-    <p class="subtitle">
-      Preencha as lacunas
-    </p>
+<nav class="navbar has-shadow is-white is-link">
+    <div class="navbar-brand">
+        <a href="{{ url_for('home') }}" class="navbar-item">
+            <img src="https://cdn.discordapp.com/attachments/644351049175531530/831694890416734278/nowalls_icon.png"
+                 alt="site logo" style="max-height:70px">
+        </a>
+    </div>
+    <div class="navbar-menu" id="navbar-links">
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}" class="navbar-item">
+                Home
+            </a> <br>
+            <a href="{{ url_for('pessoa') }}" class="navbar-item">
+                Pessoa publica
+            </a><br>
+            <a href="{{ url_for('login_usuario') }}" class="navbar-item">
+                Login de Usuario
+            </a><br>
+            <a href="{{ url_for('empresa') }}" class="navbar-item">
+                Empresa
+            </a>
+        </div>
+    </div>
+</nav>
 
+<section class="hero is-link">
+    <div class="hero-body">
+        <p class="title">
+            Cadastre-se sua Empresa aqui
+        </p>
+        <p class="subtitle">
+            Preencha as lacunas
+        </p>
+        <form action="/registrando_empresa" method="post">
+            <div class="field">
 
-    <form action="/registrando_empresa" method="post">
-        <input type="text" placeholder="digite seu nome" name="nome" id="nome">
-                <br><br>
-        <input type="text" placeholder="digite seu email" name="email" id="email">
-                <br><br>
-        <input type="text" placeholder="digite seu token" name="token" id="token">
-        <a onclick="gerar_token();" href="#">Gerar meu token</a>
-                <br><br>
-        <input type="number" placeholder="digite sua quantos creditos deseja comecar" name="creditos" id="creditos">
-        <a onclick="comprar_creditos();" href="#">comprar creditos +10</a>
-                <br><br>
-        <input type="submit" value="enviar"/>
-    </form>
-</div>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input is-success" type="text" placeholder="Nome" name="nome" id="nome">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" placeholder="Email" name="email" id="email">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </p>
+            </div>
+            <br>
+            <div class="field has-addons">
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="text" placeholder="Token" name="token" id="token">
+                </p>
+                <div class="control">
+                    <a class="button is-info" onclick="gerar_token();" href="#">
+                        Gerar meu token
+                    </a>
+                </div>
+            </div>
+            <br>
+            <div class="field has-addons">
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="number" placeholder="Quantidade de créditos" name="creditos"
+                           id="creditos" value="0">
+                </p>
+                <div class="control">
+                    <a class="button is-info" onclick="comprar_creditos();" href="#">
+                        comprar creditos +10
+                    </a>
+                </div>
+            </div>
+            <br>
+            <div class="field is-grouped">
+                <div class="control">
+                    <input class="button is-info is-rounded is-medium" type="submit" value="Enviar"/>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 </body>
-<script >
+<script>
     function gerar_token() {
         document.getElementById("token").value = makeid(10);
 
@@ -53,6 +118,12 @@
     function comprar_creditos(){
         document.getElementById("creditos").value = 10 + parseInt(document.getElementById("creditos").value);
     }
+
+
+
+
+
+
 
 </script>
 </html>

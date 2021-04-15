@@ -1,32 +1,47 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pessoa publica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <style>
-.button {
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.Entrar {background-color: #4CAF50;} /* Green */
-.Cadastrar {background-color: #008CBA;} /* Blue */
-</style>
+    </style>
 </head>
 <body>
-
-<h2>Se cadastre-se</h2>
-<br>
-
-<a href="/cadastrar_pessoa"><button class="button Cadastrar">Cadastrar</button></a>
-
+<nav class="navbar has-shadow is-white is-link">
+    <div class="navbar-brand">
+        <a href="{{ url_for('home') }}" class="navbar-item">
+            <img src="https://cdn.discordapp.com/attachments/644351049175531530/831694890416734278/nowalls_icon.png"
+                 alt="site logo" style="max-height:70px">
+        </a>
+    </div>
+    <div class="navbar-menu" id="navbar-links">
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}" class="navbar-item">
+                Home
+            </a> <br>
+            <a href="{{ url_for('pessoa') }}" class="navbar-item">
+                Pessoa publica
+            </a><br>
+            <a href="{{ url_for('login_usuario') }}" class="navbar-item">
+                Login de Usuario
+            </a><br>
+            <a href="{{ url_for('empresa') }}" class="navbar-item">
+                Empresa
+            </a>
+        </div>
+    </div>
+</nav>
+<section class="section hero is-link">
+    <div class="hero-body">
+        <h2 class="title">Cadastre-se</h2>
+        <br>
+        <a href="/cadastrar_pessoa">
+            <button class="button is-info is-medium is-rounded">Cadastrar</button>
+        </a>
+    </div>
+</section>
 </body>
 </html>
