@@ -10,30 +10,69 @@
     </style>
 </head>
 <body>
-<section class="hero is-primary">
-  <div class="hero-body">
-    <p class="title">
-      Cadastre-se aqui
-    </p>
-    <p class="subtitle">
-      Preencha as lacunas
-    </p>
+<nav class="navbar has-shadow is-white is-link">
+    <div class="navbar-brand">
+        <a href="{{ url_for('home') }}" class="navbar-item">
+            <img src="https://cdn.discordapp.com/attachments/644351049175531530/831694890416734278/nowalls_icon.png"
+                 alt="site logo" style="max-height:70px">
+        </a>
+    </div>
+    <div class="navbar-menu" id="navbar-links">
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}" class="navbar-item">
+                Home
+            </a> <br>
+            <a href="{{ url_for('cadastrar_pessoa') }}" class="navbar-item">
+                Cadastrar Pessoa publica
+            </a><br>
+            <a href="{{ url_for('login_usuario') }}" class="navbar-item">
+                Login de Usuario
+            </a><br>
+            <a href="{{ url_for('empresa') }}" class="navbar-item">
+                Empresa
+            </a>
+        </div>
+    </div>
+</nav>
+<section class="hero is-link">
+    <div class="hero-body">
+        <p class="title">
+            Cadastre-se aqui
+        </p>
+        <p class="subtitle">
+            Preencha as lacunas
+        </p>
 
 
-    <form action="/registrando_pessoa" method="post">
-        <input type="text" placeholder="digite seu nome" name="nome" id="nome">
-                <br><br>
-        <input type="text" placeholder="digite seu email" name="email" id="email">
-                <br><br>
-        <input type="text" placeholder="digite seu telefone" name="telefone" id="telefone">
-                <br><br>
-        <input type="text" placeholder="digite sua data_de_nascimento" name="data_de_nascimento" id="data_de_nascimento">
-                <br><br>
-        <input type="text" placeholder="digite seu cpf" name="cpf" id="cpf">
-                <br><br>
-        <input type="submit" value="enviar"/>
-    </form>
-</div>
+        <form action="/registrando_pessoa" method="post">
+            <div class="field">
+                    <input class="input" type="text" placeholder="digite seu nome" name="nome" id="nome">
+            </div>
+            <br>
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" placeholder="Email" name="email" id="email">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </p>
+            </div>
+            <br>
+            <div class="field">
+                    <input class="input" type="tel" placeholder="digite seu telefone" name="telefone" id="telefone">
+            </div>
+            <br>
+            <input class="input" type="text" placeholder="digite sua data_de_nascimento" name="data_de_nascimento"
+                   id="data_de_nascimento">
+            <br><br>
+            <input class="input" type="text" placeholder="digite seu cpf" name="cpf" id="cpf">
+            <br><br>
+            <input class="button is-info is-medium is-rounded" type="submit" value="enviar"/>
+        </form>
+    </div>
 </section>
 </body>
 </html>
