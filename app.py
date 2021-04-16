@@ -88,12 +88,6 @@ def home():
     return render_template("home.html", messages=False)
 
 
-@app.route('/pessoa_publica')
-def pessoa():
-    data = Pessoa.query.all()
-    return render_template("pessoa_publica.html", data=data)
-
-
 @app.route('/empresa')
 def empresa():
     data = Empresa.query.all()

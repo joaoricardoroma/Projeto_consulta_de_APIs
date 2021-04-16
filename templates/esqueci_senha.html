@@ -10,18 +10,56 @@
     </style>
 </head>
 <body>
-<section class="hero is-danger">
+<nav class="navbar has-shadow is-white is-link">
+    <div class="navbar-brand">
+        <a href="{{ url_for('home') }}" class="navbar-item">
+            <img src="https://cdn.discordapp.com/attachments/644351049175531530/831694890416734278/nowalls_icon.png"
+                 alt="site logo" style="max-height:70px">
+        </a>
+    </div>
+    <div class="navbar-menu" id="navbar-links">
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}" class="navbar-item">
+                Home
+            </a> <br>
+            <a href="{{ url_for('cadastrar_pessoa') }}" class="navbar-item">
+                Cadastrar Pessoa publica
+            </a><br>
+            <a href="{{ url_for('login_usuario') }}" class="navbar-item">
+                Login de Usuario
+            </a><br>
+            <a href="{{ url_for('empresa') }}" class="navbar-item">
+                Empresa
+            </a>
+        </div>
+    </div>
+</nav>
+<section class="hero is-link">
 <div class="hero-body">
     <p class="title">
             Coloque seu email abaixo
         </p>
         <p class="subtitle">
-            Voce recebera uma email para recuperar senha
+            Voce receberá uma email para recuperar sua senha
         </p>
     <form action="/esqueci_senha" method="post">
-          <input type="email" placeholder="digite seu email" name="email" id="email">
+        <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" placeholder="Digite seu email" name="email" id="email">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                    </span>
+                </p>
+            </div>
             <br>
-          <input type="submit" value="enviar"/>
+        <div class="field is-grouped">
+                <div class="control">
+                    <input class="button is-info is-rounded is-medium" type="submit" value="Enviar"/>
+                </div>
+            </div>
     </form>
 
 </div>

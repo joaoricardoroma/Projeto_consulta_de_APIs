@@ -2,22 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Consultando API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 <body>
-<p class="title">
+<nav class="navbar has-shadow is-white is-link">
+    <div class="navbar-brand">
+        <a href="{{ url_for('home') }}" class="navbar-item">
+            <img src="https://cdn.discordapp.com/attachments/644351049175531530/831694890416734278/nowalls_icon.png"
+                 alt="site logo" style="max-height:70px">
+        </a>
+    </div>
+    <div class="navbar-menu" id="navbar-links">
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}" class="navbar-item">
+                Home
+            </a> <br>
+            <a href="{{ url_for('cadastrar_pessoa') }}" class="navbar-item">
+                Cadastrar Pessoa publica
+            </a><br>
+            <a href="{{ url_for('login_usuario') }}" class="navbar-item">
+                Login de Usuario
+            </a><br>
+            <a href="{{ url_for('empresa') }}" class="navbar-item">
+                Empresa
+            </a>
+        </div>
+    </div>
+</nav>
+<section class=" hero is-link">
+    <div class="hero-body">
+        <h3 class="title">
             Coloque o telefone da pessoa que deseja consultar
-        </p>
-    <form action="/api/consult_by_screen" method="post">
-      <input type="text" placeholder="digite o telefone" name="phone" id="phone">
+        </h3>
+        <form action="/api/consult_by_screen" method="post">
+            <div class="field">
+                <input class="input" type="tel" placeholder="digite o telefone" name="phone" id="phone">
+            </div>
             <br>
-      <p class="title">
-            Coloque o token da sua empresa
-        </p>
-      <input type="text" placeholder="digite o token" name="token" id="token">
-            <br>
-            <input type="submit" value="enviar"/>
-    </form>
-{{ data }}
+            <p class="title">
+                Coloque o token da sua empresa
+            </p>
+            <div class="field">
+                <input class="input" type="text" placeholder="digite o token" name="token" id="token">
+                <br>
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <input class="button is-info is-rounded is-medium" type="submit" value="Enviar"/>
+                </div>
+            </div>
+        </form>
+        {{ data }}
+    </div>
+</section>
 </body>
 </html>
