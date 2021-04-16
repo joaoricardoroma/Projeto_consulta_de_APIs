@@ -288,11 +288,21 @@ def consult_by_phone():
     try:
         pessoa_filtrada = Pessoa.query.filter_by(telefone=request.form['phone']).first()
         nome = pessoa_filtrada.nome
-        name_encripted = encrypting_names(nome)
+        splited_names = nome.split()
+        words = []
+        for splited_name in splited_names:
+            characters = len(splited_name)
+            hidden_letter_count = math.floor(characters / 2)
+            letters_count = characters - hidden_letter_count
+            word = splited_name[0:letters_count]
+            range(10)
+            for add in range(hidden_letter_count):
+                word += "*"
+            words.append(word)
+        encrypted_names = " ".join(words)
         _return = {
-            'nome': f'{name_encripted}'
+            'nome': f'{encrypted_names}'
         }
-        empresa.creditos -= 1
         db.session.commit()
 
         return jsonify(_return)
@@ -309,26 +319,26 @@ def consult_by_screen():
         payload = {'phone': '{}'.format(request.form['phone'])}
         request_api = requests.post(url, data=payload, headers=headers)
         if request_api.status_code == 200:
-            data = f"Nome da pessoa consultada e {request_api.json()['nome']}"
+            data = f"Nome da pessoa consultada e " \
+                   f"{request_api.json()['nome']}"
         else:
             data = "Dados inseridos incorretos"
     return render_template("consult_by_screen.html", data=data)
 
 
-
-def encrypting_names(nome):
-    pessoa_filtrada = Pessoa.query.filter_by(telefone=request.form['phone']).first()
-    nome = pessoa_filtrada.nome
-    splited_names = nome.split()
-    words = []
-    for splited_name in splited_names:
-        characters = len(splited_name)
-        hidden_letter_count = math.floor(characters / 2)
-        letters_count = characters - hidden_letter_count
-        word = splited_name[0:letters_count]
-        range(10)
-        for add in range(hidden_letter_count):
-            word += "*"
-        words.append(word)
-    encrypted_names = " ".join(words)
-    return
+# def encrypting_names(nome):
+#     pessoa_filtrada = Pessoa.query.filter_by(telefone=request.form['phone']).first()
+#     nome = pessoa_filtrada.nome
+#     splited_names = nome.split()
+#     words = []
+#     for splited_name in splited_names:
+#         characters = len(splited_name)
+#         hidden_letter_count = math.floor(characters / 2)
+#         letters_count = characters - hidden_letter_count
+#         word = splited_name[0:letters_count]
+#         range(10)
+#         for add in range(hidden_letter_count):
+#             word += "*"
+#         words.append(word)
+#     encrypted_names = " ".join(words)
+#     return
