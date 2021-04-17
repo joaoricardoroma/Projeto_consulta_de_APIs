@@ -22,7 +22,7 @@
     </p>
 
 <form action="/criador_de_usuario">
-    <input type="submit" value="criar"/>
+    <input class="button is-link" type="submit" value="criar"/>
 </form>
 <table>
     <thead>
@@ -45,12 +45,12 @@
         </td>
         <td>
             <form action="/editar_usuario/{{ usuario.id }}">
-                <input type="submit" value="editar"/>
+                <input class="button is-link" type="submit" value="editar"/>
             </form>
         </td>
         <td>
             <form action="/deletar_usuario/{{ usuario.id }}">
-                <input type="submit" value="excluir"/>
+                <input class="button is-link" type="submit" value="excluir"/>
             </form>
         </td>
     </tr>

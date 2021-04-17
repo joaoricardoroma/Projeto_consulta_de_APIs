@@ -22,7 +22,7 @@
     </p>
 
 <form action="/cadastrar_pessoa">
-    <input type="submit" value="criar"/>
+    <input class="button is-link" type="submit" value="criar"/>
 </form>
 <table>
     <thead>
@@ -69,12 +69,12 @@
         </td>
         <td>
             <form action="/editar_pessoa/{{ pessoa.id }}">
-                <input type="submit" value="editar"/>
+                <input class="button is-link" type="submit" value="editar"/>
             </form>
         </td>
         <td>
             <form action="/deletar_pessoa/{{ pessoa.id }}">
-                <input type="submit" value="excluir"/>
+                <input class="button is-link" type="submit" value="excluir"/>
             </form>
         </td>
     </tr>

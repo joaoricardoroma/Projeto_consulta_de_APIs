@@ -32,33 +32,40 @@
         </div>
     </div>
 </nav>
-<section class="hero is-link">
-    <div class="hero body">
+<section class=" section hero is-link">
+    <div class="column">
         <div class="message-header is-info">
             <p class="subtitle is 4">
                 {{ current_user.email }} entrou como Super usuario
             </p>
         </div>
-        <br>
-        <div class="field is-grouped">
-            <div class="control">
-                <a href="/tabela_pessoa">
-                    <button class="button is-info is-rounded">tabela pessoas</button>
-                </a>
+        <div class="columns is-mobile">
+            <div class="column">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <a href="/tabela_pessoa">
+                            <button class="button is-danger">tabela pessoas</button>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="field is-grouped">
-            <div class="control">
-                <a href="/tabela_empresa">
-                    <button class="button is-info is-rounded ">tabela empresas</button>
-                </a>
+            <div class="column">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <a href="/tabela_usuario">
+                            <button class="button is-danger ">tabela usuario</button>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="field is-grouped">
-            <div class="control">
-                <a href="/tabela_usuario">
-                    <button class="button is-info is-rounded ">tabela usuario</button>
-                </a>
+            <div class="column">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <a href="/tabela_empresa">
+                        <button class="button is-danger">tabela empresas</button>
+                    </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
