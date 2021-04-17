@@ -34,8 +34,11 @@
 </nav>
 <section class=" hero is-link">
     <div class="hero-body">
-        <h1>Versao completa cobrando 1 credito (assim vindo o nome completo da pessoa)</h1>
-        <h3 class="title">
+        <div class="message-header is-info">
+            <h1 class="title is-6">Versao completa cobrando 1 credito (assim vindo o nome completo da pessoa)</h1>
+        </div>
+        <br>
+        <h3 class="title is-4">
             Coloque o telefone da pessoa que deseja consultar
         </h3>
         <form action="/api/consult_by_screen" method="post">
@@ -43,7 +46,7 @@
                 <input class="input" type="tel" placeholder="digite o telefone" name="phone" id="phone">
             </div>
             <br>
-            <p class="title">
+            <p class="title is-4">
                 Coloque o token da sua empresa
             </p>
             <div class="field">
@@ -56,13 +59,17 @@
                 </div>
             </div>
         </form>
-        <h1>Versao gratuita sem cobrar creditos(porem o nome vira incompleto)</h1>
+        <br>
+        <div class="message-header is-info">
+            <h1 class="title is-6">Versao gratuita sem cobrar creditos(porem o nome vira incompleto)</h1>
+        </div>
+        <br>
         <form action="/api/consult_lite" method="post">
             <div class="field">
                 <input class="input" type="tel" placeholder="digite o telefone" name="phone" id="phone_lite">
             </div>
             <br>
-            <p class="title">
+            <p class="title is-4">
                 Coloque o token da sua empresa
             </p>
             <div class="field">
@@ -75,7 +82,16 @@
                 </div>
             </div>
         </form>
-        {{ data }}
+        <br>
+        <article class="message is-dark">
+            <div class="message-header">
+                <p>Resultado</p>
+                <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+                Nome: {{ data }}
+            </div>
+        </article>
     </div>
 </section>
 </body>
