@@ -34,6 +34,7 @@
 </nav>
 <section class=" hero is-link">
     <div class="hero-body">
+        <h1>Versao completa cobrando 1 credito (assim vindo o nome completo da pessoa)</h1>
         <h3 class="title">
             Coloque o telefone da pessoa que deseja consultar
         </h3>
@@ -47,6 +48,25 @@
             </p>
             <div class="field">
                 <input class="input" type="text" placeholder="digite o token" name="token" id="token">
+                <br>
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <input class="button is-info is-rounded is-medium" type="submit" value="Enviar"/>
+                </div>
+            </div>
+        </form>
+        <h1>Versao gratuita sem cobrar creditos(porem o nome vira incompleto)</h1>
+        <form action="/api/consult_lite" method="post">
+            <div class="field">
+                <input class="input" type="tel" placeholder="digite o telefone" name="phone" id="phone_lite">
+            </div>
+            <br>
+            <p class="title">
+                Coloque o token da sua empresa
+            </p>
+            <div class="field">
+                <input class="input" type="text" placeholder="digite o token" name="token" id="token_lite">
                 <br>
             </div>
             <div class="field is-grouped">
