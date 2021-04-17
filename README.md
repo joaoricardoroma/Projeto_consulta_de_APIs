@@ -18,4 +18,4 @@ Essa area e responsavel por consultar usando o meio do telefone como modo de rec
 
 Vá na aba "Empresa".
 Selecione consultar api
-Preencha as informações no campo pago para receber as informações do responsável do número ou utilize a função gratuita porém as informações virão incompletas.-
+Preencha as informações no campo pago para receber as informações do responsável do número ou utilize a função gratuita porém as informações virão incompletas.
