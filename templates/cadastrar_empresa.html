@@ -100,6 +100,19 @@
         </form>
     </div>
 </section>
+<section class="hero is-danger">
+  <div class="hero-body">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+  {% for message in messages %}
+  <li>{{ message }}</li></ul>
+  {% endfor %}
+
+  {% endif %}
+{% endwith %}
+      </div>
+</section>
 </body>
 <script>
     function gerar_token() {
@@ -118,12 +131,5 @@
     function comprar_creditos(){
         document.getElementById("creditos").value = 10 + parseInt(document.getElementById("creditos").value);
     }
-
-
-
-
-
-
-
 </script>
 </html>
