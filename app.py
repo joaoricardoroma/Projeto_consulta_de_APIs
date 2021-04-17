@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash
 from flask import request
 from flask import abort, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
@@ -22,6 +22,7 @@ import math
 
 Base = declarative_base()
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 DB_HOST = environ.get('DB_HOST', default='sql10.freemysqlhosting.net')
 DB_NAME = environ.get('DB_NAME', default='sql10404637')
 DB_PASSWORD = environ.get('DB_PASSWORD', default='HXPT7824Gj')
@@ -116,11 +117,15 @@ def registrando_pessoa():
 
 @app.route('/registrando_empresa', methods=['POST'])
 def registrando_empresa():
+    flash('Email ja existente!')
     if request.method == 'POST':
-        registrando_empresa = Empresa(email=request.form['email'], nome=request.form['nome'], token=request.form['token'], creditos=request.form['creditos'])
-        db.session.add(registrando_empresa)
-        db.session.commit()
-        return redirect(url_for('home'))
+        try:
+            registrando_empresa = Empresa(email=request.form['email'], nome=request.form['nome'], token=request.form['token'], creditos=request.form['creditos'])
+            db.session.add(registrando_empresa)
+            db.session.commit()
+            return redirect(url_for('home'))
+        except Exception:
+            return redirect(url_for('cadastrar_empresa'))
 
 
 @app.route('/registrando_usuario', methods=['POST'])
@@ -145,6 +150,7 @@ def criador_de_usuario():
 
 @app.route("/cadastrar_empresa")
 def cadastrar_empresa():
+    flash('Email ja existente!')
     return render_template("cadastrar_empresa.html", messages=False)
 
 
@@ -325,8 +331,7 @@ def consult_by_screen():
         payload = {'phone': '{}'.format(request.form['phone'])}
         request_api = requests.post(url, data=payload, headers=headers)
         if request_api.status_code == 200:
-            data = f"Nome da pessoa consultada e " \
-                   f"{request_api.json()['nome']}"
+            data = f"{request_api.json()['nome']}"
         else:
             data = "Dados inseridos incorretos"
     return render_template("consult_by_screen.html", data=data)\
