@@ -361,5 +361,4 @@ def encrypting_names(nome):
             word += "*"
         words.append(word)
     encrypted_names = " ".join(words)
-    import ipdb; ipdb.set_trace()
     return encrypted_names
