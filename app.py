@@ -23,12 +23,12 @@ import math
 Base = declarative_base()
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-DB_HOST = environ.get('DB_HOST', default='sql10.freemysqlhosting.net')
-DB_NAME = environ.get('DB_NAME', default='sql10404637')
-DB_PASSWORD = environ.get('DB_PASSWORD', default='HXPT7824Gj')
-DB_USERNAME = environ.get('DB_USERNAME', default='sql10404637')
+DB_HOST = os.environ.get("DB_HOST", "")
+DB_NAME = os.environ.get("DB_NAME", "")
+DB_PASSWORD = os.environ.get("DB_PASSWORD", "")
+DB_USERNAME = os.environ.get("DB_USERNAME", "")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'secret'
 login_manager = LoginManager(app)
