@@ -28,6 +28,7 @@ ptyprocess==0.7.0
 pycparser==2.20
 Pygments==2.8.1
 PyMySQL==1.0.2
+python-dotenv==0.17.0
 requests==2.25.1
 SQLAlchemy==1.4.3
 toml==0.10.2

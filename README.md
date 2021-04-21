@@ -20,4 +20,5 @@ Vá na aba "Empresa".
 Selecione consultar api
 Preencha as informações no campo pago para receber as informações do responsável do número ou utilize a função gratuita porém as informações virão incompletas.
 
-(sempre verifique se esta dentro da venv(source venv/bin/activate))
+(sempre verifique se esta dentro da venv(source venv/bin/activate0))
+FLASK_APP=app FLASK_ENV=development flask run

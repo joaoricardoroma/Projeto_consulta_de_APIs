@@ -18,15 +18,16 @@ import json
 import requests
 from os import environ
 import math
+import os
 
 
 Base = declarative_base()
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-DB_HOST = os.environ.get("DB_HOST", "")
-DB_NAME = os.environ.get("DB_NAME", "")
-DB_PASSWORD = os.environ.get("DB_PASSWORD", "")
-DB_USERNAME = os.environ.get("DB_USERNAME", "")
+DB_HOST = os.environ.get('DB_HOST', '')
+DB_NAME = os.environ.get('DB_NAME', '')
+DB_PASSWORD = os.environ.get('DB_PASSWORD', '')
+DB_USERNAME = os.environ.get('DB_USERNAME', '')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
