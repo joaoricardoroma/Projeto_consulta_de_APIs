@@ -23,6 +23,7 @@ import os
 Base = declarative_base()
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 DB_HOST = os.environ.get('DB_HOST', '')
 DB_NAME = os.environ.get('DB_NAME', '')
 DB_PASSWORD = os.environ.get('DB_PASSWORD', '')
