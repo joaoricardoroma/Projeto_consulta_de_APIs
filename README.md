@@ -22,3 +22,12 @@ Preencha as informações no campo pago para receber as informações do respons
 
 (sempre verifique se esta dentro da venv(source venv/bin/activate0))
 FLASK_APP=app FLASK_ENV=development flask run
+
+
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
+from app import db
+db.create_all()
+
+
+
