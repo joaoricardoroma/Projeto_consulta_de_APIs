@@ -22,7 +22,9 @@ mysqlclient==2.0.3
 parso==0.8.2
 pexpect==4.8.0
 pickleshare==0.7.5
+pkg-resources==0.0.0
 prompt-toolkit==3.0.18
+psycopg2-binary==2.8.6
 ptyprocess==0.7.0
 pycparser==2.20
 Pygments==2.8.1
